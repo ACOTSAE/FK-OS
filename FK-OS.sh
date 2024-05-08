@@ -26,6 +26,10 @@ echo "目前仅支持系统调用实验"
 
 function Init()
 {
+    if mountpoint -q '/home/shiyanlou/oslab/hdc'
+    then
+        sudo umount '/home/shiyanlou/oslab/hdc'
+    fi
     cd '/home/shiyanlou/oslab'
     ls|grep -v 'hit-oslab-linux-20110823.tar.gz'|xargs rm -rf
     tar -zxf /home/shiyanlou/oslab/hit-oslab-linux-20110823.tar.gz \
@@ -38,6 +42,16 @@ function Init()
         echo "初始化失败，请检查hit-oslab-linux-20110823.tar.gz"
         exit
     fi
+}
+
+function TryMount()
+{
+echo "尝试挂载镜像"
+while ! ( mountpoint -q '/home/shiyanlou/oslab/hdc' )
+do
+    sudo ~/oslab/mount-hdc > /dev/null 2>&1;
+done
+echo "挂载成功"
 }
 
 Init
@@ -138,7 +152,8 @@ make -j 2
 
 cd ..
 
-sudo ./mount-hdc
+TryMount
+
 sed -i '132a\\#define __NR_iam        72\n\#define __NR_whoami     73\n' 'hdc/usr/include/unistd.h'
 cp '/home/teacher/testlab2.c' 'hdc/usr/root/'
 cp '/home/teacher/testlab2.sh' 'hdc/usr/root/'
