@@ -11,7 +11,7 @@ https://www.lanqiao.cn/courses/115
 ```bash
 # 使用以下代码另存为并执行
 # init.sh可换成你想要的名字
-cat > init.sh && chmod +x init.sh && ./init.sh 
+cat Code > init.sh && chmod +x init.sh && ./init.sh 
 ```
 
 # 介绍
