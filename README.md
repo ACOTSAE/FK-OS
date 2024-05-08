@@ -6,6 +6,14 @@ https://www.lanqiao.cn/courses/115
 
 目前只支持实验三《系统调用》
 
+请在实验环境中运行
+
+```bash
+# 使用以下代码另存为并执行
+# init.sh可换成你想要的名字
+cat > init.sh && chmod +x init.sh && ./init.sh 
+```
+
 # 介绍
 
 这是一个我在学习shell编程时写的玩具项目，也是我在Github上传的第一个项目
@@ -16,6 +24,7 @@ https://www.lanqiao.cn/courses/115
 
 # TODO
 
+- [ ] 自动取消挂载
 - [X] 熟悉实验环境
 - [ ] 操作系统的引导
 - [X] 系统调用
@@ -24,5 +33,5 @@ https://www.lanqiao.cn/courses/115
 - [ ] 信号量的实现和应用
 - [ ] 地址映射与共享
 - [ ] 终端设备的控制
-- [ ] proc文件系统的实现 
+- [ ] proc文件系统的实现
 
