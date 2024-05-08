@@ -26,10 +26,6 @@ echo "目前仅支持系统调用实验"
 
 function Init()
 {
-    if mountpoint -q '/home/shiyanlou/oslab/hdc'
-    then
-        sudo umount '/home/shiyanlou/oslab/hdc'
-    fi
     cd '/home/shiyanlou/oslab'
     ls|grep -v 'hit-oslab-linux-20110823.tar.gz'|xargs rm -rf
     tar -zxf /home/shiyanlou/oslab/hit-oslab-linux-20110823.tar.gz \
